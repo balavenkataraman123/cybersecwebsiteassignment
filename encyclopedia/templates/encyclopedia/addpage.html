@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Bala Venkataraman
+{% endblock %}
+
+{% block body %}
+    <h1>add a page</h1>
+
+<form action="/addpage" >
+<input type="text" id="name" name="name" value="" style="width: 70vw;">
+<br><br>
+<textarea id="addedthing" name="q" style="width: 70vw; height:70vh;">
+</textarea>
+<br><br>
+<input type="submit" value="Submit">
+
+</form>
+
+{% endblock %}

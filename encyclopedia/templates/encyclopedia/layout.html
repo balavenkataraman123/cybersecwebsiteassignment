@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head><title>{% block title %}{% endblock %}</title>
+    <style>
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.25);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.25);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,.25);
+}
+
+
+body {
+    background: #000;
+    color: #aaa;
+    font: 100%/20px helvetica, arial, sans-serif;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+/* width */
+
+  canvas {
+    display: block;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  div {
+    text-align: center;
+    background: rgba(0,0,0,0);
+    padding: 10px 15px;
+    position: relative;
+    z-index: 2;
+    width: 97vw;
+  }
+
+#a1{
+    display: block;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 88vh;
+
+}
+
+  p {
+    font-size: 12px;
+    margin: 0 0 5px;
+  }
+  
+  label {
+    font-size: 12px;
+    font-weight: bold;
+  }	
+  
+  button {
+    display: block; 
+    margin: 10px 0 5px;
+  }
+  
+  a {
+    border-bottom: 1px dotted #444;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  #n_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.25);
+  }
+  
+  #n_li {
+    float: left;
+  }
+  
+  #n_li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgba(0,254,9,.85);
+  }
+  
+  .active {
+    background-color: rgba(0,254,9,.25);
+  }
+    </style>
+    </head>
+    <body>
+        <div id="nav">
+            <ul id="n_ul">
+              <li id="n_li"><a href="/page/whoami">About Me</a></li>
+              <li id="n_li"><a href="/page/projects">Projects</a></li>
+              <li id="n_li"><a href="/page/blogs">Blogs</a></li>
+              <li id="n_li"><a href="/page/extras">Extras</a></li>
+              <li id="n_li"><a href="/page/contact">Contact</a></li>
+              <li id="n_li" style="float:right"><a onclick="turnoffmatrix()" id="mtxtog">turn off matrix animation</a></li>
+
+                </ul>
+                {% block nav %}
+                {% endblock %}            
+        </div>
+        <div id="a1"class="contentdiv">
+                {% block body %}
+                {% endblock %}
+        </div>
+            <canvas id="c"></canvas>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // Initialising the canvas
+        var matrixanimation = 1;
+        var canvas = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d');
+
+        // Setting the width and height of the canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Setting up the letters
+        var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890からつばよちょっと待ってうこそからつばようこそ!@#$%^&*()_+{}"::"|<>?|~';
+        letters = letters.split('');
+
+        // Setting up the columns
+        var fontSize = 10,
+        columns = canvas.width / fontSize;
+
+        // Setting up the drops
+        var drops = [];
+        for (var i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        function turnoffmatrix(){
+            if(matrixanimation == 0){
+                matrixanimation = 1;
+                for (var i = 0; i < columns; i++) {
+                    drops[i] = 1;
+                }                
+                document.getElementById('mtxtog').innerHTML = "turn off matrix animation"
+            }
+            else{
+                matrixanimation = 0;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                document.getElementById('mtxtog').innerHTML = "turn on matrix animation"
+            }
+        }
+        // Setting up the draw function
+        function draw( ) {
+            if(matrixanimation == 1){
+            ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < drops.length; i++) {
+                var text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillStyle = '#0f0';
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                drops[i]++;
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.96) {
+                drops[i] = 0;
+                }
+            }
+        }}
+
+        // Loop the animation
+        setInterval(draw, 23);
+    </script>
+    </body>
+</html>

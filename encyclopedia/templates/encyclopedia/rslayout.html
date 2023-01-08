@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head><title>{% block title %}{% endblock %}</title>
+    <style>
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.25);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.25);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,.25);
+}
+
+
+body {
+    background: #000;
+    color: #aaa;
+    font: 100%/20px helvetica, arial, sans-serif;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+/* width */
+
+  #bbgimage {
+    display: block;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 30vh;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  div {
+    text-align: center;
+    background: rgba(0,0,0,0);
+    padding: 10px 15px;
+    position: relative;
+    z-index: 2;
+    width: 97vw;
+  }
+
+#a1{
+    display: block;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 88vh;
+
+}
+
+  p {
+    font-size: 12px;
+    margin: 0 0 5px;
+  }
+  
+  label {
+    font-size: 12px;
+    font-weight: bold;
+  }	
+  
+  button {
+    display: block; 
+    margin: 10px 0 5px;
+  }
+  
+  a {
+    border-bottom: 1px dotted #444;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  #n_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.25);
+  }
+  
+  #n_li {
+    float: left;
+  }
+  
+  #n_li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgba(0,254,9,.85);
+  }
+  
+  .active {
+    background-color: rgba(0,254,9,.25);
+  }
+    </style>
+    </head>
+    <body>
+        <div id="nav">
+            <ul id="n_ul">
+              <li id="n_li"><a href="/page/rshome">Home</a></li>
+              <li id="n_li"><a href="/page/rsmembers">Members</a></li>
+              <li id="n_li"><a href="/page/rscomps">Contests</a></li>
+              <li id="n_li"><a href="/page/rsblog">Updates</a></li>
+              <li id="n_li"><a href="/page/rsannounce">Annoucements</a></li>
+              <li id="n_li"><a href="/page/rscontacts">Socials</a></li>
+
+                </ul>
+                {% block nav %}
+                {% endblock %}            
+        </div>
+        <div id="a1"class="contentdiv">
+                {% block body %}
+                {% endblock %}
+        </div>
+            <img id="bbgimage" src="/image/2"></img>
+
+
+    </body>
+</html>
