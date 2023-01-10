@@ -74,7 +74,7 @@ def random(request):
     entry = rng.choice(entries)
     return redirect(  '/page/' + str(entry))
 def whoami(request):
-    return redirect('/page/whoami')
+    return redirect('/page/landing_page')
 
 def image(request, imgid):
     img = default_storage.open(f"entries/{imgid}")
