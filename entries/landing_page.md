@@ -1,8 +1,6 @@
 # Cybersecurity- An Introduction
 
 Made by Bala Venkataraman, 2023
-
-
 ## Main concepts
 
 Cybersecurity is the practice of protecting computer systems, networks, and devices from digital attacks, theft of data, and damage. 
@@ -21,12 +19,11 @@ The main components of Cybersecurity are:
 
 ## More interesting resources
 
-### Network protocols <!turn these into links>
+## [Personal cybersecurity](/page/pcsec)
 
-### Encryption
+## [Network protocols](/page/networks)
+## [Encryption (interractive)](/page/encryption) 
 
-### RSA algorithm
+## [Types of attacks (interractive)](/page/attacks)
 
-### Types of attacks
-
-### Passwords (Interractive)
+## [Passwords (interractive)](/page/passwords)
