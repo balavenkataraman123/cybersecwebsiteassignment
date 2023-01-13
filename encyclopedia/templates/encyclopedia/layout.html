@@ -113,9 +113,8 @@ body {
         <div id="nav">
             <ul id="n_ul">
               <li id="n_li"><a href="/page/landing_page">Introduction</a></li>
-              <li id="n_li"><a href="/page/rsap">Encryption playground</a></li>
-              <li id="n_li"><a href="/page/psest">Password strengh</a></li>
-              <li id="n_li"><a href="/page/httpvss">How networks work</a></li>
+              <li id="n_li"><a href="/page/pcsec">Personal Cybersecurity</a></li>
+              <li id="n_li"><a href="/interractive/pswd">Password strengh</a></li>
               <li id="n_li" style="float:right"><a onclick="turnoffmatrix()" id="mtxtog">turn off matrix animation</a></li>
 
                 </ul>
@@ -184,6 +183,75 @@ body {
 
         // Loop the animation
         setInterval(draw, 23);
+        function myFunction(){
+        
+        let lowercase = "qwertyuiopasdfghjklzxcvbnm"; //26
+        let uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"; //26
+        let numbers = "1234567890"; //10
+        let spc = "`~!@#$%^&*(()_+=-[{]}\\|\'\";:,<.>/?"; //33
+        console.log("called")
+        let text = document.getElementById("pswd").value;
+        let numcharacters = 0;
+        let lct = 0
+        let uct = 0
+        let nct = 0
+        let sct = 0
+        let length = text.length;
+        for (let i = 0; i < text.length; i++) {
+            if(lowercase.includes(text[i])){
+                if(lct == 0){
+                    lct = 1
+                    numcharacters += 26
+                }
+            }
+            if(uppercase.includes(text[i])){
+                if(uct == 0){
+                    uct = 1
+                    numcharacters += 26
+                }
+            }
+            if(numbers.includes(text[i])){
+                if(nct == 0){
+                    nct = 1
+                    numcharacters += 10
+                }
+            }
+            if(spc.includes(text[i])){
+                if(sct == 0){
+                    sct = 1
+                    numcharacters += 33
+                }
+            }                        
+        }    
+        console.log(numcharacters ** length)
+        let time = ((numcharacters ** length)/2071500000)
+        console.log(time)
+        years = Math.floor(time / 31556926)
+        time -= 31556926 * years
+        months = Math.floor(time / 2629743)
+        time -= 2629743 * months
+        days = Math.floor(time / 86400)
+        time -= (days * 86400)
+        hours = Math.floor(time / 3600)
+        time -= (hours * 3600)
+        minutes = Math.floor(time / 60)
+        time -= (minutes * 60)
+        seconds = Math.floor(time)
+        document.getElementById("y").innerHTML = years + " Years"
+        document.getElementById("m").innerHTML = months + " Months"
+        document.getElementById("d").innerHTML = days + " Days"
+        document.getElementById("h").innerHTML = hours + " Hours"
+        document.getElementById("mi").innerHTML = minutes + " Minutes"
+        document.getElementById("s").innerHTML = seconds + " Seconds"
+        console.log(years)
+        console.log(months)
+        console.log(days)
+        console.log(hours)
+        console.log(minutes)
+        console.log(seconds)
+      }
+        
+
     </script>
     </body>
 </html>

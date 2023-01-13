@@ -40,7 +40,6 @@ Additionally, you should enable two-factor authentication for your online accoun
 
 You can also educate yourself about the common tactics used in phishing attacks, such as creating a sense of urgency or using social engineering tactics. By being aware of these tactics, you can better recognize a phishing attempt when it occurs.
 
-Want to see how good you are? Try out this new game of [Where's  ̶w̶a̶l̶d̶o̶ The Phishing email](/interractive/phish).
 
 
 ### Password attacks

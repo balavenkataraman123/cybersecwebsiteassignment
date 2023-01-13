@@ -13,7 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
 
 
-
+def pswd(request):
+    return render(request, "encyclopedia/password_checker.html")
+def phish(request):
+    return render(request, "encyclopedia/password_checker.html")    
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
