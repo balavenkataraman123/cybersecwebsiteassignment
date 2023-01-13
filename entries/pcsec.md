@@ -66,11 +66,11 @@ The directory of IPs to URLs are stored in DNS servers, although the most common
 
 (For more information on how the caching algorithm works, look up "Least Recently Used Cache")
 
-These DNS servers can sometimes be attacked, so for example, That URL for GitHub can redirect to the IP addres of a Different website, for example 66.254.114.40
+These DNS servers can sometimes be attacked, so for example, That URL for GitHub can redirect to the IP address of a Different website, for example, 66.251.114.40
 
-In a website that obviously looks very different, this is not much of a problem, but attackers can redirectt people from bank websites to a sketchy phishing site.
+In a website that obviously looks very different, this is not much of a problem, but attackers can redirect people from bank websites to a sketchy phishing site.
 
-For this reason, always be careful in a site you enter credit card information, eg. e commerce sites like Amazon, Aliexpress, DigiKey, etc.  and bank websites.
+For this reason, always be careful on a site you enter the credit card information, eg. e-commerce sites like Amazon, Aliexpress, DigiKey, etc., and bank websites.
 
 Periodically clear your DNS cache as well, using the commands
 
@@ -106,5 +106,8 @@ The effect is that Instagram is blocked.
 
 You can see the possibility of doing this to block all advertising sites.
 
-Using root terminal on your phone from your PC, you can edit the hosts file of your phone to block out all advertising sites, so advertisements even in non-browser applications (where an ad blocking extension can't be installed) can be blocked.
+Using root terminal on your phone from your PC, you can edit the hosts file of your phone to block out all advertising sites, so advertisements even in non-browser applications (where an ad-blocking extension can't be installed) can be blocked.
+
+
+
 
