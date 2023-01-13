@@ -17,13 +17,5 @@ The main components of Cybersecurity are:
 
 - Security posture: This refers to the overall security of an organization's computer systems, networks, and devices. A strong security posture involves implementing effective controls and regularly reviewing and updating them to keep up with the evolving threat landscape.
 
-## More interesting resources
+# [Learn more about how to secure your information](/page/pcsec)
 
-## [Personal cybersecurity](/page/pcsec)
-
-## [Network protocols](/page/networks)
-## [Encryption (interractive)](/page/encryption) 
-
-## [Types of attacks (interractive)](/page/attacks)
-
-## [Passwords (interractive)](/page/passwords)
