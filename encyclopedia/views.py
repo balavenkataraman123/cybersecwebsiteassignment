@@ -13,10 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
 
 
-def pswd(request):
-    return render(request, "encyclopedia/password_checker.html")
-def phish(request):
-    return render(request, "encyclopedia/password_checker.html")    
+def interractive(request, name):
+    return render(request, "encyclopedia/" + name + ".html")
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
@@ -77,7 +75,9 @@ def random(request):
     entry = rng.choice(entries)
     return redirect(  '/page/' + str(entry))
 def whoami(request):
+    print(util.list_entries)
     return redirect('/page/landing_page')
+
 
 def image(request, imgid):
     img = default_storage.open(f"entries/{imgid}")

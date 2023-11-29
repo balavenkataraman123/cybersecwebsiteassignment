@@ -12,7 +12,6 @@ urlpatterns = [
     path('random', views.random, name='random'),
     path('page/<str:name>', views.getentry, name='getentry'),
     path('image/<str:imgid>', views.image, name='image'),
-    path('interractive/pswd', views.pswd, name='pswd'),
-    path('interractive/phish', views.phish, name='pswd'),
+    path('interractive/<str:name>', views.interractive, name='inter'),
     path('fileupload', views.storeAndProcessFile, name='storeandprocessfile')
     ]

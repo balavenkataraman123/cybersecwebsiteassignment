@@ -12,7 +12,7 @@ To protect against malware, it is important to take a multi-layered approach. On
 <img src="https://www.bleepstatic.com/content/hl-images/2022/03/31/Malware.jpg" height="200" />
 
 
-Another important step is to use anti-virus and anti-malware software. These programs can detect and remove malware from your system, and can also help to prevent new infections from occurring. It's important to keep your anti-virus software up to date, and to run regular scans to ensure that your system is free from malware.
+An important step is to use anti-virus software. These programs can detect and remove malware from your system, and can also help to prevent new infections from occurring. It's important to keep your anti-virus software up to date, and to run regular scans to ensure that your system is free from malware.
 
 Another way to protect against malware is to be cautious when downloading and installing software. Only download software from reputable sources, and be wary of any suspicious emails or pop-ups that ask you to download and install software. Additionally, it's important to be careful when using social networking sites, as malware can be spread through links and downloads on these platforms.
 
@@ -22,7 +22,7 @@ You can also use a firewall to protect your computer from malware. Firewalls can
 
 <img src="https://marvel-b1-cdn.bc0a.com/f00000000216283/www.fortinet.com/content/fortinet-com/en_us/resources/cyberglossary/malware/_jcr_content/par/c05_container_copy_c_405637578/par/c28_image.img.jpg/1615919193441.jpg" height="200" />
 
-When you are doing something that you know has a high chance of infecting your computer with malware, but with no other choice, such as downloading pirated anime, it is a very useful trick to create a virtual machine specifically for that purpose. In this case, if it gets infected you can just reinstall it, without losing data. After that, once the downloaded files are verified to be save, you can trasnfer them to your host machine to watch the content.
+When you are doing something that you know has a high chance of infecting your computer with malware, such as downloading pirated media from lesser-known sources, it is a very useful trick to create a virtual machine specifically for that purpose. In this case, if it gets infected you can just reinstall it, without losing data on the host system. After that, once the downloaded files are verified to be safe, you can transfer them to your host machine to watch the content.
 
 tools like VirtualBox make setting up VMs easy.
 
@@ -48,7 +48,7 @@ If your password is simple or common, you are at risk of a password attack, such
 
 Brute force attacks test every possible combination of password, so short passwords can be cracked relatively easily.
 
-Dictionary attacks are a bit more sophisticated, and try out passwords out of a list of the most commonly used passwords. If your password is in this list, [10000 most common passwords list](https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords), it might be at risk.
+Dictionary attacks are a bit more sophisticated, and try out passwords out of a list of the most commonly used passwords. If your password is in this list of , [10000 most common passwords list](https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords), it might be at risk.
 
 Try out the [interractive password strength calculator](/interractive/pswd).
 
@@ -86,7 +86,7 @@ on Linux, Android and Mac. It is different on Windows.
 
 <img src="https://www.imperva.com/learn/wp-content/uploads/sites/13/2019/01/DNS-spoofing.jpg" height="300" />
 
-
+Source: [Medium article](href="https://medium.com/mobile-development-group/dns-and-privacy-d50c59428cb2">Medium article)
 
 ### Ways you can use DNS modification
 
@@ -107,6 +107,12 @@ The effect is that Instagram is blocked.
 You can see the possibility of doing this to block all advertising sites.
 
 Using root terminal on your phone from your PC, you can edit the hosts file of your phone to block out all advertising sites, so advertisements even in non-browser applications (where an ad-blocking extension can't be installed) can be blocked.
+
+Similarly, a device can be connected to your router to also play the role of a modified DNS server. This is usually done with a Raspberry Pi Single Board Computer. A software called <a href="https://pi-hole.net/">PiHole</a> can be used. 
+
+
+
+
 
 
 

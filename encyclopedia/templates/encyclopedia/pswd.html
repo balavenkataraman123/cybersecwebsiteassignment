@@ -1,0 +1,93 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Cybersecurity website
+{% endblock %}
+
+{% block body %}
+<h1>Password Strength Checker</h1>
+
+<h3>Tips to improve your password strength</h3>
+<h4 id="numchar">- Vary the types of characters: Add more special characters, numbers, and mix upper upper and lower case letters</h4>
+<br>
+<h4 id="pslength">- Increase the length- This increases how hard it is for you to remember by a linear factor, but makes it exponentially harder for someone else to crack</h4>
+<br>
+<br>
+Enter the password you want to test: <input type="text" id="pswd">
+<button onclick="testPswd()">Test Password</button>
+
+<h2>  On the average supercomputer, it will take </h2>
+<h3 id="y">--- Years</h3> 
+<h3 id="m">--- Months</h3> 
+<h3 id="d">--- Days</h3> 
+<h3 id="h">--- Hours</h3> 
+<h3 id="mi">--- Minutes</h3> 
+<h3 id="s">--- Seconds</h3> 
+<h2>To crack this password</h2>
+<h3>However, it might get cracked a lot sooner if it happens to be on <a href="https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords">This</a> list</h3>
+
+
+
+<script>
+    function testPswd(){
+    
+    let lowercase = "qwertyuiopasdfghjklzxcvbnm"; //26
+    let uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"; //26
+    let numbers = "1234567890"; //10
+    let spc = "`~!@#$%^&*(()_+=-[{]}\\|\'\";:,<.>/?"; //33
+    let text = document.getElementById("pswd").value;
+    let numcharacters = 0;
+    let lct = 0
+    let uct = 0
+    let nct = 0
+    let sct = 0
+    let length = text.length;
+    for (let i = 0; i < text.length; i++) {
+        if(lowercase.includes(text[i])){// for each type of characters, 
+            if(lct == 0){
+                lct = 1
+                numcharacters += 26
+            }
+        }
+        if(uppercase.includes(text[i])){
+            if(uct == 0){
+                uct = 1
+                numcharacters += 26
+            }
+        }
+        if(numbers.includes(text[i])){
+            if(nct == 0){
+                nct = 1
+                numcharacters += 10
+            }
+        }
+        if(spc.includes(text[i])){
+            if(sct == 0){
+                sct = 1
+                numcharacters += 33
+            }
+        }                        
+    }    
+    console.log(numcharacters ** length)
+    let time = ((numcharacters ** length)/2071500000) // takes time and formats it into years months days hours minutes and seconds
+    console.log(time)
+    years = Math.floor(time / 31556926)
+    time -= 31556926 * years
+    months = Math.floor(time / 2629743)
+    time -= 2629743 * months
+    days = Math.floor(time / 86400)
+    time -= (days * 86400)
+    hours = Math.floor(time / 3600)
+    time -= (hours * 3600)
+    minutes = Math.floor(time / 60)
+    time -= (minutes * 60)
+    seconds = Math.floor(time)
+    document.getElementById("y").innerHTML = years + " Years" // dislpays the time to the users
+    document.getElementById("m").innerHTML = months + " Months"
+    document.getElementById("d").innerHTML = days + " Days"
+    document.getElementById("h").innerHTML = hours + " Hours"
+    document.getElementById("mi").innerHTML = minutes + " Minutes"
+    document.getElementById("s").innerHTML = seconds + " Seconds"
+    }            
+</script>
+{% endblock %}
