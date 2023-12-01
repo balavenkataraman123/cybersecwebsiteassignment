@@ -74,9 +74,6 @@ def random(request):
     entries = list(util.list_entries())
     entry = rng.choice(entries)
     return redirect(  '/page/' + str(entry))
-def whoami(request):
-    print(util.list_entries)
-    return redirect('/page/landing_page')
 
 
 def image(request, imgid):
