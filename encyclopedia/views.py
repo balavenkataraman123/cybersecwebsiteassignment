@@ -11,7 +11,7 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
-
+import os
 
 def interractive(request, name):
     return render(request, "encyclopedia/" + name + ".html")
@@ -73,7 +73,12 @@ def newpage(request):
 def random(request):
     entries = list(util.list_entries())
     entry = rng.choice(entries)
-    return redirect(  '/page/' + str(entry))
+    return redirect('/page/' + str(entry))
+def getrandomimage(request, folder):
+
+    img = default_storage.open(f"{folder}/{random.choice(os.listdir(folder))}")
+    response = FileResponse(img)
+    return response
 
 
 def image(request, imgid):
@@ -93,4 +98,7 @@ def storeAndProcessFile(request):
         return HttpResponse('File uploaded')
     else:
         return HttpResponse('not authenticated')
-#todo - add save image route
+def getThumbNail(request, entryname): # returns a thumbnail image for a particular document
+    img = default_storage.open(f"thumbnails/{entryname}")
+    response = FileResponse(img)
+    return response

@@ -1,16 +1,30 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-   you will never see this
+   Cybersecurity
 {% endblock %}
 
 {% block body %}
     <h1>Cybersecurity: Defense against the digital dark arts</h1>
 
     <div>
+        <section class="thumbnail-grid">
+        <ul>
         {% for entry in entries %}
+        <li>
+            <a href="/page/{{entry}}" title="View page">
+                <figure>
+                    <div class="thumbnail">
+                        <span class="overlay">{{entry}}</span>
+                        <img src="getthumbnail/{{entry}}.jpg">
+                    </div>
 
+                </figure>
+            </a>
+        </li>
         {% endfor %}
+        </ul>
+        </section>
     </div>
 
 {% endblock %}

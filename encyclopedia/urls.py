@@ -13,5 +13,6 @@ urlpatterns = [
     path('page/<str:name>', views.getentry, name='getentry'),
     path('image/<str:imgid>', views.image, name='image'),
     path('interractive/<str:name>', views.interractive, name='inter'),
-    path('fileupload', views.storeAndProcessFile, name='storeandprocessfile')
+    path('fileupload', views.storeAndProcessFile, name='storeandprocessfile'),
+    path('getthumbnail/<str:entryname>', views.getThumbNail, name = 'getthumbnail')
     ]

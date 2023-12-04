@@ -9,10 +9,7 @@ Cybersecurity website
 
 <h3>Tips to improve your password strength</h3>
 <h4 id="numchar">- Vary the types of characters: Add more special characters, numbers, and mix upper upper and lower case letters</h4>
-<br>
 <h4 id="pslength">- Increase the length- This increases how hard it is for you to remember by a linear factor, but makes it exponentially harder for someone else to crack</h4>
-<br>
-<br>
 Enter the password you want to test: <input type="text" id="pswd">
 <button onclick="testPswd()">Test Password</button>
 
@@ -67,10 +64,23 @@ Enter the password you want to test: <input type="text" id="pswd">
                 numcharacters += 33
             }
         }                        
+    }
+    if(length <=8){
+        document.getElementById("pslength").style.color = "red";
     }    
+    else{
+        document.getElementById("pslength").style.color = "#aaa";
+
+    }
+    if(numcharacters <36){
+        document.getElementById("numchar").style.color = "red";
+    }    
+    else{
+        document.getElementById("numchar").style.color = "#aaa";
+
+    }
     console.log(numcharacters ** length)
     let time = ((numcharacters ** length)/2071500000) // takes time and formats it into years months days hours minutes and seconds
-    console.log(time)
     years = Math.floor(time / 31556926)
     time -= 31556926 * years
     months = Math.floor(time / 2629743)
