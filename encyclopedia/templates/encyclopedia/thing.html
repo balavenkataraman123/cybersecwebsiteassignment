@@ -1,3 +1,7 @@
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is the file that actually shows the thing you want to read.
+-->
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
@@ -6,7 +10,7 @@ Cybersecurity website
 
 {% block body %}
 
-
-{{entry|safe}}
+    <!--uses Jinja2 code to get the entry from the request and render its markdown as HTML-->
+    {{entry|safe}}
 
 {% endblock %}

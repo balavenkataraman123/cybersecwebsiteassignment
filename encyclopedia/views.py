@@ -28,16 +28,10 @@ def getentry(request, name):
     } )         
 
     try:
-        if name[:2] == 'rs':
-            return render(request, 'encyclopedia/rsthing.html',{
-                "entry": mdtex2html.convert(util.get_entry(name)),
-                "name": name
-            })
-        else:
-            return render(request, 'encyclopedia/thing.html',{
-                "entry": mdtex2html.convert(util.get_entry(name)),
-                "name": name
-            })
+        return render(request, 'encyclopedia/thing.html',{
+            "entry": mdtex2html.convert(util.get_entry(name)),
+            "name": name
+        })
     except:
         return HttpResponse('404 Page not found')
 def search(request):
@@ -59,7 +53,7 @@ def edited(request):
         util.save_entry(str(request.GET.get('name')), str(request.GET.get('q')))
         return redirect('/page/' + str(request.GET.get('name')))
     else:
-        return HttpResponse('not authenticated')        
+        return HttpResponse('403 not authenticated')        
 def add(request):
     if request.user.is_authenticated:
         if str(request.GET.get('name')) in (util.list_entries()):
@@ -67,7 +61,7 @@ def add(request):
         util.save_entry(str(request.GET.get('name')), str(request.GET.get('q')))
         return redirect('/page/' + str(request.GET.get('name')))
     else:
-        return HttpResponse('not authenticated')        
+        return HttpResponse('403 not authenticated')        
 def newpage(request):
     return render(request, 'encyclopedia/addpage.html')
 def random(request):
@@ -95,9 +89,9 @@ def storeAndProcessFile(request):
         if default_storage.exists(filename):
             return HTTPResponse('file already exists')
         default_storage.save(filename, ContentFile(file.read()))
-        return HttpResponse('File uploaded')
+        return HttpResponse('200 File uploaded')
     else:
-        return HttpResponse('not authenticated')
+        return HttpResponse('403 not authenticated')
 def getThumbNail(request, entryname): # returns a thumbnail image for a particular document
     img = default_storage.open(f"thumbnails/{entryname}")
     response = FileResponse(img)

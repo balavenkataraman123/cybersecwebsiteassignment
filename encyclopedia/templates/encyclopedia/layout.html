@@ -1,4 +1,9 @@
-{% load static %}
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is the main Layout file.
+-->
+
+{% load static %} 
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,7 +49,7 @@
         z-index: 1;
       }
       
-      div {
+      div { /* sets up text font size color and background color*/
         background: rgba(0,0,0,0);
         padding: 10px 15px;
         position: relative;
@@ -108,13 +113,13 @@
         background-color: rgba(0,254,9,.25);
       }
 
-      figure {
+      figure { /*make image not have any gaps around it */
         margin: 0;
         padding: 0;
       }
 
 
-      .thumbnail-grid ul {
+      .thumbnail-grid ul { /* align each icon in thumbnail*/
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -174,7 +179,7 @@
         </div>
             <canvas id="c"></canvas>
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!--uses MathJax package to render LateX, not used in this assignment but the same backend is used for a technical blog.-->
       <script>
         // Initialising the canvas
         var matrixanimation = 1;
@@ -185,7 +190,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Setting up the letters
+        // Setting up a wide variety of characters to render.
         var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890からつばよちょっと待ってうこそからつばようこそ!@#$%^&*()_+{}"::"|<>?|~';
         letters = letters.split('');
 
@@ -198,23 +203,23 @@
         for (var i = 0; i < columns; i++) {
             drops[i] = 1;
         }
-        function turnoffmatrix(){
+        function turnoffmatrix(){ // controls animation toggle switch
             if(matrixanimation == 0){
-                matrixanimation = 1;
+                matrixanimation = 1; // starts matrix animation and spawns characters
                 for (var i = 0; i < columns; i++) {
                     drops[i] = 1;
                 }                
                 document.getElementById('mtxtog').innerHTML = "turn off matrix animation"
             }
             else{
-                matrixanimation = 0;
+                matrixanimation = 0; // stops animation and deletes the characters
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 document.getElementById('mtxtog').innerHTML = "turn on matrix animation"
             }
         }
-        // Setting up the draw function
+        // Setting up the draw function for the matrix animation
         function draw( ) {
-            if(matrixanimation == 1){
+            if(matrixanimation == 1){ // does it only in case the matrix option is activated
             ctx.fillStyle = 'rgba(0, 0, 0, .1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             for (var i = 0; i < drops.length; i++) {
@@ -228,7 +233,7 @@
             }
         }}
 
-        // Loop the animation
+        // Loop the animation at 60 FPS.
         setInterval(draw, 17);
       </script>
     </body>

@@ -1,103 +1,105 @@
-{% extends "encyclopedia/layout.html" %}
-
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is an interractive component that checks your password strength.
+-->
+{% extends "encyclopedia/layout.html" %} <!--Uses pre-made layout-->
 {% block title %}
 Cybersecurity website
 {% endblock %}
 
 {% block body %}
-<h1>Password Strength Checker</h1>
+    <h1>Password Strength Checker</h1>
 
-<h3>Tips to improve your password strength</h3>
-<h4 id="numchar">- Vary the types of characters: Add more special characters, numbers, and mix upper upper and lower case letters</h4>
-<h4 id="pslength">- Increase the length- This increases how hard it is for you to remember by a linear factor, but makes it exponentially harder for someone else to crack</h4>
-Enter the password you want to test: <input type="text" id="pswd">
-<button onclick="testPswd()">Test Password</button>
+    <h3>Tips to improve your password strength</h3>
+    <h4 id="numchar">- Vary the types of characters: Add more special characters, numbers, and mix upper upper and lower case letters</h4> <!--tips for the user which are highlighted if they are applicable-->
+    <h4 id="pslength">- Increase the length- This increases how hard it is for you to remember by a linear factor, but makes it exponentially harder for someone else to crack</h4>
+    Enter the password you want to test: <input type="text" id="pswd"> <!--input text for the password-->
+    <button onclick="testPswd()">Test Password</button>
 
-<h2>  On the average supercomputer, it will take </h2>
-<h3 id="y">--- Years</h3> 
-<h3 id="m">--- Months</h3> 
-<h3 id="d">--- Days</h3> 
-<h3 id="h">--- Hours</h3> 
-<h3 id="mi">--- Minutes</h3> 
-<h3 id="s">--- Seconds</h3> 
-<h2>To crack this password</h2>
-<h3>However, it might get cracked a lot sooner if it happens to be on <a href="https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords">This</a> list</h3>
+    <h2>  On the average supercomputer, it will take </h2> <!--This text is edited by the javascript to show the password strength-->
+    <h3 id="y">--- Years</h3> 
+    <h3 id="m">--- Months</h3> 
+    <h3 id="d">--- Days</h3> 
+    <h3 id="h">--- Hours</h3> 
+    <h3 id="mi">--- Minutes</h3> 
+    <h3 id="s">--- Seconds</h3> 
+    <h2>To crack this password</h2>
+    <h3>However, it might get cracked a lot sooner if it happens to be on <a href="https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords">This</a> list</h3>
 
 
 
-<script>
-    function testPswd(){
-    
-    let lowercase = "qwertyuiopasdfghjklzxcvbnm"; //26
-    let uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"; //26
-    let numbers = "1234567890"; //10
-    let spc = "`~!@#$%^&*(()_+=-[{]}\\|\'\";:,<.>/?"; //33
-    let text = document.getElementById("pswd").value;
-    let numcharacters = 0;
-    let lct = 0
-    let uct = 0
-    let nct = 0
-    let sct = 0
-    let length = text.length;
-    for (let i = 0; i < text.length; i++) {
-        if(lowercase.includes(text[i])){// for each type of characters, 
-            if(lct == 0){
-                lct = 1
-                numcharacters += 26
+    <script>
+        function testPswd(){
+        // defines different character sets and seess which one the user has in their password
+        let lowercase = "qwertyuiopasdfghjklzxcvbnm"; //26
+        let uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"; //26
+        let numbers = "1234567890"; //10
+        let spc = "`~!@#$%^&*(()_+=-[{]}\\|\'\";:,<.>/?"; //33
+        let text = document.getElementById("pswd").value;
+        let numcharacters = 0;
+        let lct = 0
+        let uct = 0
+        let nct = 0
+        let sct = 0
+        let length = text.length;
+        for (let i = 0; i < text.length; i++) {
+            if(lowercase.includes(text[i])){// for each type of characters, count it in the possible characters used to crack the password.
+                if(lct == 0){
+                    lct = 1
+                    numcharacters += 26
+                }
             }
+            if(uppercase.includes(text[i])){
+                if(uct == 0){
+                    uct = 1
+                    numcharacters += 26
+                }
+            }
+            if(numbers.includes(text[i])){
+                if(nct == 0){
+                    nct = 1
+                    numcharacters += 10
+                }
+            }
+            if(spc.includes(text[i])){
+                if(sct == 0){
+                    sct = 1
+                    numcharacters += 33
+                }
+            }                        
         }
-        if(uppercase.includes(text[i])){
-            if(uct == 0){
-                uct = 1
-                numcharacters += 26
-            }
-        }
-        if(numbers.includes(text[i])){
-            if(nct == 0){
-                nct = 1
-                numcharacters += 10
-            }
-        }
-        if(spc.includes(text[i])){
-            if(sct == 0){
-                sct = 1
-                numcharacters += 33
-            }
-        }                        
-    }
-    if(length <=8){
-        document.getElementById("pslength").style.color = "red";
-    }    
-    else{
-        document.getElementById("pslength").style.color = "#aaa";
+        if(length <=8){ // highlights the corresponding tip when the password's length or number of different characters is insufficient.
+            document.getElementById("pslength").style.color = "red";
+        }    
+        else{
+            document.getElementById("pslength").style.color = "#aaa";
 
-    }
-    if(numcharacters <36){
-        document.getElementById("numchar").style.color = "red";
-    }    
-    else{
-        document.getElementById("numchar").style.color = "#aaa";
+        }
+        if(numcharacters <36){
+            document.getElementById("numchar").style.color = "red";
+        }    
+        else{
+            document.getElementById("numchar").style.color = "#aaa";
 
-    }
-    console.log(numcharacters ** length)
-    let time = ((numcharacters ** length)/2071500000) // takes time and formats it into years months days hours minutes and seconds
-    years = Math.floor(time / 31556926)
-    time -= 31556926 * years
-    months = Math.floor(time / 2629743)
-    time -= 2629743 * months
-    days = Math.floor(time / 86400)
-    time -= (days * 86400)
-    hours = Math.floor(time / 3600)
-    time -= (hours * 3600)
-    minutes = Math.floor(time / 60)
-    time -= (minutes * 60)
-    seconds = Math.floor(time)
-    document.getElementById("y").innerHTML = years + " Years" // dislpays the time to the users
-    document.getElementById("m").innerHTML = months + " Months"
-    document.getElementById("d").innerHTML = days + " Days"
-    document.getElementById("h").innerHTML = hours + " Hours"
-    document.getElementById("mi").innerHTML = minutes + " Minutes"
-    document.getElementById("s").innerHTML = seconds + " Seconds"
-    }            
-</script>
+        }
+        let time = ((numcharacters ** length)/2071500000) // Uses combinatoric formula to find # of possible passwords, divides it by number of attempts per second. From that, calculates the # seconds into years months days etc.
+        years = Math.floor(time / 31556926)
+        time -= 31556926 * years
+        months = Math.floor(time / 2629743)
+        time -= 2629743 * months
+        days = Math.floor(time / 86400)
+        time -= (days * 86400)
+        hours = Math.floor(time / 3600)
+        time -= (hours * 3600)
+        minutes = Math.floor(time / 60)
+        time -= (minutes * 60)
+        seconds = Math.floor(time)
+        document.getElementById("y").innerHTML = years + " Years" // dislpays the time to the users
+        document.getElementById("m").innerHTML = months + " Months"
+        document.getElementById("d").innerHTML = days + " Days"
+        document.getElementById("h").innerHTML = hours + " Hours"
+        document.getElementById("mi").innerHTML = minutes + " Minutes"
+        document.getElementById("s").innerHTML = seconds + " Seconds"
+        }            
+    </script>
 {% endblock %}

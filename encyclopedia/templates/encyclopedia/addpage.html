@@ -1,3 +1,7 @@
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is the site used to add new pages to the website.
+-->
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
@@ -7,14 +11,13 @@
 {% block body %}
     <h1>add a page</h1>
 
-<form action="/addpage" >
-<input type="text" id="name" name="name" value="" style="width: 70vw;">
-<br><br>
-<textarea id="addedthing" name="q" style="width: 70vw; height:70vh;">
-</textarea>
-<br><br>
-<input type="submit" value="Submit">
-
-</form>
+    <form action="/addpage" >
+        <input type="text" id="name" name="name" value="" style="width: 70vw;">
+        <br><br>
+        <textarea id="addedthing" name="q" style="width: 70vw; height:70vh;">
+        </textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
 
 {% endblock %}

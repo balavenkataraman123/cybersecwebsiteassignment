@@ -1,14 +1,18 @@
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is a page where an admin can upload an image file.
+-->
 {% extends "layout.html" %}
 
 {% block title %}
-Markdown server
+    Upload a file
 {% endblock %}
 
 {% block body %}
-<form method="post" action="/", enctype="multipart/form-data">
-    <input type="file" name="file" accept=".jpg, .png">
-    <input type="submit" value="Upload">
-</form>
+    <form method="post" action="/", enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .png">
+        <input type="submit" value="Upload">
+    </form>
 
 
 {% endblock %}

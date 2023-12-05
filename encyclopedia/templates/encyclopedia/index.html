@@ -1,3 +1,7 @@
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is the file which shows a grid of the thumbnails of all the pages you can go to
+-->
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
@@ -11,17 +15,17 @@
         <section class="thumbnail-grid">
         <ul>
         {% for entry in entries %}
-        <li>
-            <a href="/page/{{entry}}" title="View page">
-                <figure>
-                    <div class="thumbnail">
-                        <span class="overlay">{{entry}}</span>
-                        <img src="getthumbnail/{{entry}}.jpg">
-                    </div>
+            <li>
+                <a href="/page/{{entry}}" title="View page">
+                    <figure>
+                        <div class="thumbnail">
+                            <span class="overlay">{{entry}}</span>
+                            <img src="getthumbnail/{{entry}}.jpg">
+                        </div>
 
-                </figure>
-            </a>
-        </li>
+                    </figure>
+                </a>
+            </li>
         {% endfor %}
         </ul>
         </section>

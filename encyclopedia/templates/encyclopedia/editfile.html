@@ -1,20 +1,24 @@
+<!--
+  Cybersecurity website, Bala Venkataraman. For ICS 4U, December 4 2023.
+  This is the file used to edit the entries,, only lets you submit if you are an admin.
+-->
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-Markdown server
+    Edit a file 
 {% endblock %}
 
 {% block body %}
     <h1>edit this page</h1>
 
-<form action="/edited">
+    <form action="/edited">
 
-<textarea id="editfile" name="q" style="width: 70vw; height:70vh;" >
-    {{entry}}
-</textarea>
-<br><br>
-<input type="submit" value="Submit">
-<input type="hidden" id="name" name="name" value="{{name}}">
+        <textarea id="editfile" name="q" style="width: 70vw; height:70vh;" >
+            {{entry}}
+        </textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="hidden" id="name" name="name" value="{{name}}">
 
 </form>
 
