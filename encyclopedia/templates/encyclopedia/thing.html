@@ -11,6 +11,7 @@ Cybersecurity website
 {% block body %}
 
     <!--uses Jinja2 code to get the entry from the request and render its markdown as HTML-->
+    <div class="paragraph">
     {{entry|safe}}
-
+    </div>
 {% endblock %}

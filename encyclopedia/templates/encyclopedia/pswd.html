@@ -68,20 +68,7 @@ Cybersecurity website
                 }
             }                        
         }
-        if(length <=8){ // highlights the corresponding tip when the password's length or number of different characters is insufficient.
-            document.getElementById("pslength").style.color = "red";
-        }    
-        else{
-            document.getElementById("pslength").style.color = "#aaa";
 
-        }
-        if(numcharacters <36){
-            document.getElementById("numchar").style.color = "red";
-        }    
-        else{
-            document.getElementById("numchar").style.color = "#aaa";
-
-        }
         let time = ((numcharacters ** length)/2071500000) // Uses combinatoric formula to find # of possible passwords, divides it by number of attempts per second. From that, calculates the # seconds into years months days etc.
         years = Math.floor(time / 31556926)
         time -= 31556926 * years
@@ -100,6 +87,24 @@ Cybersecurity website
         document.getElementById("h").innerHTML = hours + " Hours"
         document.getElementById("mi").innerHTML = minutes + " Minutes"
         document.getElementById("s").innerHTML = seconds + " Seconds"
+        document.getElementById("pslength").style.color = "#aaa";
+        document.getElementById("numchar").style.color = "#aaa";
+
+
+        if(years < 1000){
+            if(length <=12){ // highlights the corresponding tip when the password's length or number of different characters is insufficient.
+                document.getElementById("pslength").style.color = "red";
+            }    
+            else{
+
+            }
+            if(numcharacters <36){
+                document.getElementById("numchar").style.color = "red";
+            }    
+            else{
+
+            }
+        }        
         }            
     </script>
 {% endblock %}
